@@ -16,7 +16,7 @@ app.get("/repositories", (request, response) => {
 app.post("/repositories", (request, response) => {
   const {title, url, techs} = request.body;
 
-  if(!url.includes("http://github.com/")){
+  if(!url.toLowerCase().includes("github.com/")){
     return response.status(400).json({error: "Url isn't a git repository."});
   }
 
